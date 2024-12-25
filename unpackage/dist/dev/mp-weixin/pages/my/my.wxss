@@ -1,0 +1,45 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.my {
+  display: flex;
+  align-items: center;
+  height: 200rpx;
+  padding-left: 20rpx;
+}
+.my image {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+.my .my-text {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  justify-content: space-around;
+  margin-left: 13rpx;
+}
+.two {
+  width: 90%;
+  height: 100rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px #ccc solid;
+}
+.two image {
+  width: 60rpx;
+  height: 60rpx;
+}
+.two text {
+  margin-left: 20rpx;
+}
+.two .arrow {
+  font-size: 38rpx;
+}
+.two1 {
+  display: flex;
+  align-items: center;
+}
+

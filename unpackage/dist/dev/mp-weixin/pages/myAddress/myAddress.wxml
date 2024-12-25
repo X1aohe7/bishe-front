@@ -1,0 +1,1 @@
+<view><block wx:for="{{addressArr}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view class="two"><view class="two1"><text>{{"地址: "+item.name}}</text><text>{{"联系方式:"+item.phone}}</text></view></view></block></view>

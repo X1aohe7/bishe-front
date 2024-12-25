@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['gotoFunc',['$event']]]]]}}" class="function-item _li" bindtap="__e"><image src="{{func.imgSrc}}"></image><text>{{func.text}}</text></view>

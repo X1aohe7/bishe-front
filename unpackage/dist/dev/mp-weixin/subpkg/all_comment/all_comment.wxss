@@ -1,0 +1,62 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.evaluate {
+  background-color: #fff;
+  margin: 30rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+.evaluate .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 20px;
+  padding-top: 5px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.evaluate .title text {
+  margin-left: 5px;
+}
+.evaluate .title .left {
+  display: flex;
+  align-items: center;
+}
+.evaluate .title .total {
+  margin-right: 7px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #c0c0c0;
+}
+.evaluate .judge .content {
+  padding: 5px 10px;
+}
+.evaluate .judge .content .customer {
+  display: flex;
+  justify-content: space-between;
+}
+.evaluate .judge .content .customer .left {
+  display: flex;
+}
+.evaluate .judge .content .customer .left image {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+.evaluate .judge .content .customer .left .name {
+  margin-left: 5px;
+}
+.evaluate .judge .content .customer .left .name .star {
+  margin-top: 5px;
+}
+.evaluate .judge .content .customer .date {
+  color: #c5c5c5;
+  white-space: nowrap;
+  float: right;
+}
+.evaluate .judge .content .text {
+  padding: 5px 10px;
+  font-size: 13px;
+}
+

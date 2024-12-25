@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['gotoServe',['$event']]]]]}}" class="service-item" bindtap="__e"><text style="margin:0 10rpx;">{{serve.text}}</text><image style="height:60rpx;width:60rpx;margin:0 auto;" src="{{serve.imgSrc}}"></image></view>

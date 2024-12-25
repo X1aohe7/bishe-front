@@ -1,0 +1,33 @@
+
+.sectionBox.data-v-7f914524 {
+	margin-bottom: 40rpx;
+}
+.sectionType.data-v-7f914524 {
+	font-size: 30rpx;
+	font-weight: bold;
+	overflow: hidden;
+	margin-bottom: 20rpx;
+}
+.two.data-v-7f914524{
+	width: 90%;
+	
+	margin: 0 auto;
+	padding: 20rpx;
+	background: white;
+	margin-top: 20rpx;
+}
+.two1.data-v-7f914524{
+	display: flex;
+	justify-content: space-between;
+}
+.btn.data-v-7f914524{
+	display: inline-block;
+	width: 180rpx;
+	height: 69rpx;
+	background: red;
+	color: white;
+	text-align: center;
+	line-height: 69rpx;
+	border-radius: 12rpx;
+}
+

@@ -1,0 +1,65 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/create/create",
+    "pages/home/home",
+    "pages/evluate/evluate",
+    "pages/myAddress/myAddress",
+    "pages/myOrder/myOrder",
+    "pages/myIntro/myIntro",
+    "pages/my/my",
+    "pages/order/order",
+    "pages/care/care",
+    "subpkg/search/search",
+    "subpkg/search_list/search_list",
+    "subpkg/all_comment/all_comment",
+    "subpkg/nurse_detail/nurse_detail",
+    "pages/healthInformation/healthInformation",
+    "pages/healthInformationDetail/healthInformationDetail",
+    "pages/myOrderDetail/myOrderDetail",
+    "pages/myCollect/myCollect",
+    "pages/myMeicdal/myMeicdal",
+    "pages/remind/remind",
+    "pages/AIChat/AIChat"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "selectedColor": "#116B9B",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "/static/shouye-01.png",
+        "selectedIconPath": "static/selected/shouye-01.png"
+      },
+      {
+        "pagePath": "pages/care/care",
+        "text": "护理",
+        "iconPath": "static/shuhou-01.png",
+        "selectedIconPath": "static/selected/shuhou-01.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "static/gerenzhongxin-01.png",
+        "selectedIconPath": "static/selected/gerenzhongxin-01.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation",
+    "chooseLocation"
+  ],
+  "usingComponents": {}
+}

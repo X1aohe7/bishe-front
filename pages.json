@@ -1,0 +1,232 @@
+{
+	"pages": [{
+            "path" : "pages/login/login",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/create/create",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        },{
+	
+            "path" : "pages/home/home",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "首页",
+                "enablePullDownRefresh": false
+            }
+            
+        },{
+            "path" : "pages/evluate/evluate",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        },{
+            "path" : "pages/myAddress/myAddress",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "地址",
+                "enablePullDownRefresh": false
+            }
+            
+        },{
+            "path" : "pages/myOrder/myOrder",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "订单",
+                "enablePullDownRefresh": false
+            }
+            
+        },{
+            "path" : "pages/myIntro/myIntro",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "个人信息",
+                "enablePullDownRefresh": false
+            }
+            
+        },{
+            "path" : "pages/my/my",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/order/order",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        },{
+            "path" : "pages/care/care",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "护理",
+                "enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path" : "subpkg/search/search",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        
+        ,{
+            "path" : "subpkg/search_list/search_list",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                // "enablePullDownRefresh": false,
+                "onReachBottomDistance": 150,
+                "enablePullDownRefresh":true,
+                "backgroundColor": "#f8f8f8"
+            }
+            
+        },
+        {
+          "path": "subpkg/all_comment/all_comment",
+          "style": {
+            "navigationBarTitleText": "",
+            "enablePullDownRefresh": false
+          }
+        }
+        ,{
+            "path" : "subpkg/nurse_detail/nurse_detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+                
+            }
+            
+        }
+        ,{
+            "path" : "pages/healthInformation/healthInformation",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "健康资讯",
+                "enablePullDownRefresh": true
+            }
+            
+        },
+      {
+        "path": "pages/healthInformationDetail/healthInformationDetail",
+        "style": {
+          "navigationBarTitleText": "详情",
+          "enablePullDownRefresh": false
+        }
+      },  
+      {
+		    "path" : "pages/myOrderDetail/myOrderDetail",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "我的订单",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		}
+    
+
+        ,{
+            "path" : "pages/myCollect/myCollect",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的收藏",
+                "enablePullDownRefresh": false
+            }
+            
+        },
+        {
+        	"path" : "pages/myMeicdal/myMeicdal",
+        	"style" : 
+        	{
+        		"navigationBarTitleText" : "",
+        		"enablePullDownRefresh" : false
+        	}
+        },
+        {
+        	"path" : "pages/remind/remind",
+        	"style" : 
+        	{
+        		"navigationBarTitleText" : "",
+        		"enablePullDownRefresh" : false
+        	}
+        }
+        
+        ,{
+            "path" : "pages/AIChat/AIChat",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+    "tabBar": {
+      "selectedColor": "#116B9B",
+      "list": [
+        {
+          "pagePath": "pages/home/home",
+          "text": "首页",
+          "iconPath": "/static/shouye-01.png",
+          "selectedIconPath": "static/selected/shouye-01.png"
+        },
+        {
+          "pagePath": "pages/care/care",
+          "text": "护理",
+          "iconPath": "static/shuhou-01.png",
+          "selectedIconPath": "static/selected/shuhou-01.png"
+        },
+        {
+          "pagePath": "pages/my/my",
+          "text": "我的",
+          "iconPath": "static/gerenzhongxin-01.png",
+          "selectedIconPath": "static/selected/gerenzhongxin-01.png"
+        }
+      ]
+    },
+	
+	
+	
+	"permission": {
+	        "scope.userLocation": {
+	            "desc": "你的位置信息将用于小程序位置接口的效果展示" // 高速公路行驶持续后台定位
+	        }
+	    },
+	"requiredPrivateInfos": ["getLocation", "chooseLocation"],
+	
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		},
+    "backgroundColor": "#F8F8F8"
+    
+	}
+}

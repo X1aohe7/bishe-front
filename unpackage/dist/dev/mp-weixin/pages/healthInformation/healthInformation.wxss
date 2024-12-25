@@ -1,0 +1,40 @@
+
+.container{
+	width: 100%;
+}
+.two{
+	width: 100vw;
+	/* margin: 0 auto; */
+	display: flex;
+	/* align-items: center; */
+  justify-content: space-around;
+	background: white;
+	border-bottom: 1px #ccc solid;
+	margin-top: 10rpx;
+	padding: 20rpx;
+}
+.two view{
+	/* width: 60%; */
+}
+.title{
+	font-size: 38rpx;
+	font-weight: 600;
+	display: block;
+}
+.pp{
+	/* width: 98%; */
+	/* display: inline-block; */
+	/* margin-top: 20rpx; */
+	/* text-indent: 1em; */
+font-size: 38rpx;
+	font-weight: 600;
+	display: block;
+}
+.two image{
+	width: 300rpx;
+	height: 200rpx;
+}
+.container .two .img{
+   margin-right: 15px;
+}
+

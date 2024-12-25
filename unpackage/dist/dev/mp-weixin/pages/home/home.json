@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "首页",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "uni-icons": "/uni_modules/uni-icons/components/uni-icons/uni-icons",
+    "my-search": "/components/my-search/my-search",
+    "function-item": "/components/function-item/function-item",
+    "service-item": "/components/service-item/service-item"
+  }
+}

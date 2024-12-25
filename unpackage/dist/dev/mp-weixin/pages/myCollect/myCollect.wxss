@@ -1,0 +1,26 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.search-box {
+  border-bottom: 1px solid #ccc;
+}
+.people-list {
+  width: 100%;
+}
+.people-item {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+.people-item .item-img image {
+  width: 200rpx;
+  height: 280rpx;
+  margin: 20rpx 20rpx;
+}
+.people-item .item-text {
+  margin: 20rpx 30rpx;
+}
+.people-item .item-text .item-skill {
+  display: flex;
+  flex-wrap: wrap;
+}
+
