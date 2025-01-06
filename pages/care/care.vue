@@ -50,7 +50,7 @@
     methods:{
       showDetail(item){
         uni.navigateTo({
-          url:'/subpkg/nurse_detail/nurse_detail?id='+item.nid
+          url:'/subpkg/nurse_detail/nurse_detail?id='+item.nursingId
         })
       },
       gotoSearch(){

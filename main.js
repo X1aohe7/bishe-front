@@ -2,18 +2,20 @@
 // #ifndef VUE3
 import Vue from 'vue'
 import App from './App'
+import store from './store'
 
 Vue.config.productionTip = false
-
+// 将 store 挂载到全局
+Vue.prototype.$store = store;
 App.mpType = 'app'
 123
 uni.addInterceptor('request', {
   invoke(args) {
     if (!args.url.startsWith('http')){
-      args.url = 'http://47.113.220.124:8088' + args.url;
+      // args.url = 'http://47.113.220.124:8088' + args.url;
     }
     // args.url = 'http://47.113.220.124:8080' http://81.70.243.2:8088 + args.url;
-    // args.url = 'http://localhost:8088' + args.url;
+    args.url = 'http://localhost:8080' + args.url;
     return args;
   }
 });

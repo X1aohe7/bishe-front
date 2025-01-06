@@ -85,7 +85,7 @@
                   </view>
             </view>
               
-              <view class="date">{{c.time}}</view>
+              <view class="date">{{c.time.split("T")[0]}}</view>
             </view>
             <view class="text">
               {{c.comment}}
@@ -195,10 +195,10 @@
 		    url:"/collect/get",
 		    data:{"uid":uni.getStorageSync("userId")}
 		  })
-		   // console.log(res[1].data);
+		   console.log(res,666);
 		   // arr=
 		   for(let item of res[1].data){
-			   if(this.id==item.nid){
+			   if(this.id==item.nursingId){
 				   this.isShow=false;
 			   }
 		   }

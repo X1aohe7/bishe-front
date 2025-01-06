@@ -8,7 +8,7 @@
 					</view>
 					<view class="login-password">
 						<i class="el-icon-key"></i>
-						<input type="safe-password" name="" id="" placeholder="请输入密码" v-model="password">
+						<input type="password" name="" id="" placeholder="请输入密码" v-model="password">
 					</view>
 				</view>
 				<view class="button"><button @click="onsubmit">登录</button></view>
@@ -28,7 +28,20 @@
 </template>
 
 <script>
+  import {
+  	mapMutations,mapState
+  } from 'vuex';
 	export default {
+    onLoad() {
+      if(uni.getStorageSync('hasLogin')==true){
+        uni.switchTab({
+        	url:"/pages/home/home"
+        })
+      }
+    },
+    computed: {
+    	...mapState(['hasLogin'])
+    },
 		data() {
 			return {
 				username:'',
@@ -36,6 +49,7 @@
 			}
 		},
 		methods: {
+      ...mapMutations(['login']),
 		  async onsubmit(){
 				var obj={
 					username:this.username,
@@ -50,14 +64,21 @@
 				// uni.setStorage("username",res[1].data.name);
 				// uni.setStorage("userId",res[1].data.uid);
 				uni.setStorageSync('username', res[1].data.name);
-				uni.setStorageSync('userId', res[1].data.uid);
+				uni.setStorageSync('userId', res[1].data.userId);
 
 				if(res[1].statusCode=="200"){
-					console.log(123)
+					// console.log(123)
+          this.login()
 					uni.switchTab({
 						url:"/pages/home/home"
 					})
-				}
+				}else{
+          uni.showToast({
+            title: '"用户名或密码不正确"',
+            icon: 'none',
+            duration: 2000
+          })
+        }
 			}
 		}
 	}

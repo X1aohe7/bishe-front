@@ -26,7 +26,7 @@
                   </view>
             </view>
               
-              <view class="date">{{c.time}}</view>
+              <view class="date">{{c.time.split("T")[0]}}</view>
             </view>
             <view class="text">
               {{c.comment}}
