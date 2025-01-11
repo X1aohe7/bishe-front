@@ -41,7 +41,7 @@
         })
         const res= await uni.request({
           method:'GET',
-          url:"/healthInformation/get",
+          url:"/healthinformation/get",
           data:{
             id:id
           }

@@ -16,6 +16,31 @@
 	background: white;
 	margin-top: 20rpx;
 }
+.two ._h5.data-v-127632e4{
+  font-size: 3vw;
+  font-weight: 300;
+}
+.two .order-info-address.data-v-127632e4{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  -webkit-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  margin: 1vw 0;
+}
+.two .order-info-address ._p.data-v-127632e4{
+  /*width: 90%; */
+  font-size: 5vw;
+}
+.two .order-info-address ._i.data-v-127632e4{
+  font-size: 6vw;
+}
+.two ._p.data-v-127632e4{
+  font-size: 3vw;
+}
 .two1.data-v-127632e4{
 	display: flex;
 	justify-content: space-between;

@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<view class="two" @click="gotoDetail(item.id)" v-for="(item,i) in healthInformationList" :key="i" >
+		<view class="two" @click="gotoDetail(item.healthInformationId)" v-for="(item,i) in healthInformationList" :key="i" >
 			<view style="width: 70%;">
 				<!-- <text class="title">{{item.title}}</text> -->
 				<text class="pp">{{item.profile}}</text>
@@ -41,7 +41,7 @@
         })
         const res= await uni.request({
           method:'GET',
-          url:"/healthInformation/getByPage",
+          url:"/healthinformation/getByPage",
           data:{
             currentPage:this.currentPage,
             pageSize:this.pageSize

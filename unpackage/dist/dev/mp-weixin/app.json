@@ -20,7 +20,10 @@
     "pages/myCollect/myCollect",
     "pages/myMeicdal/myMeicdal",
     "pages/remind/remind",
-    "pages/AIChat/AIChat"
+    "pages/AIChat/AIChat",
+    "pages/userAddress/userAddress",
+    "subpkg/editUserAddress/editUserAddress",
+    "subpkg/addUserAddress/addUserAddress"
   ],
   "subPackages": [],
   "window": {

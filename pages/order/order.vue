@@ -1,6 +1,6 @@
 <template>
 	<view>
-	  <view class="two">
+<!-- 	  <view class="two">
 		  <view class="sectionBox">
 			<view class="sectionType">选择地址：</view>
 			<picker mode="region" @change="regionChange" :value="region">
@@ -12,8 +12,15 @@
 			<p>详细地址:<input v-model="address"  type="text"/></p>
 		</view>
 		<text class="btn" @click="sureClick">确认</text>
-	  </view>	
-		
+	  </view>	 -->
+		<div class="two" @click="gotoUserAddress">
+        <h5>上门服务至：</h5>
+        <div class="order-info-address">
+          <p>{{deliveryAddress!=""?deliveryAddress.position+(deliveryAddress.detail != null ? deliveryAddress.detail : ''):'请选择地址'}}</p>
+          <p>></p>
+        </div>
+        <p>{{deliveryAddress!=""?deliveryAddress.name:''}}{{deliveryAddress!=""?deliveryAddress.phone:''}}</p>
+		</div>
      
 	 <view class="two two1">
 		 <text>服务人员:</text>
@@ -54,14 +61,20 @@
 				formattedDateTime:"",
 				remark:"",
 				obj:{},
-				address:"",
+				deliveryAddress:null,
         price:""
 			}
 		},
 		onLoad(options) {
 			console.log( JSON.parse(options.data));
 			this.obj=JSON.parse(options.data);
+      this.deliveryAddress=uni.getStorageSync("deliveryAddress");
+      console.log(this.deliveryAddress,666);
 		},
+    onShow() {
+      this.deliveryAddress=uni.getStorageSync("deliveryAddress");
+      console.log(this.deliveryAddress,666);
+    },
 		
 		created() {
 			// 创建一个 Date 对象，它将包含当前日期和时间  
@@ -92,6 +105,12 @@
 
 		},
 		methods: {
+      gotoUserAddress(){
+        uni.navigateTo({
+          url:"/pages/userAddress/userAddress"
+        })
+      },
+      
 			// 省市区选择器
 			regionChange(e) {
 				console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -176,7 +195,34 @@
 		background: white;
 		margin-top: 20rpx;
 	}
+
+	.two h5{
+	  font-size: 3vw;
+	  font-weight: 300;
+	}
+	.two .order-info-address{
+	  width: 100%;
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	  font-weight: 700;
+	  user-select: none;
+	  cursor: pointer;
+	  margin: 1vw 0;
+	}
+	.two .order-info-address p{
+	  //width: 90%;
+	  font-size: 5vw;
+	}
 	
+	
+	.two .order-info-address i{
+	  font-size: 6vw;
+	}
+	.two p{
+	  font-size: 3vw;
+	
+	}
 	
 	
 	

@@ -183,6 +183,28 @@
                 "enablePullDownRefresh": false
             }
             
+        },
+        {
+          "path" : "pages/userAddress/userAddress",
+          "style" : 
+          {
+            "navigationBarTitleText" : ""
+          }
+        },
+        
+        {
+          "path" : "subpkg/editUserAddress/editUserAddress",
+          "style" : 
+          {
+            "navigationBarTitleText" : ""
+          }
+        },
+        {
+          "path" : "subpkg/addUserAddress/addUserAddress",
+          "style" : 
+          {
+            "navigationBarTitleText" : ""
+          }
         }
     ],
     "tabBar": {
