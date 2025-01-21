@@ -2,7 +2,7 @@
 	<view>
 		<view class="two" v-for="(item,index) in orderArr" @click="detail(index)">
 			<view class="two1">
-				<text>订单编号: {{item.id}}</text>
+				<text>订单编号: {{item.ordersId}}</text>
 			</view>
 			
 			<view class="two2">
@@ -55,7 +55,7 @@
 			async init(){
 				const res= await uni.request({
 				  method:'GET',
-				  url:"/order/list",
+				  url:"/orders/list",
 				  data:{uid:uni.getStorageSync("userId")}
 				})
 				console.log(res);

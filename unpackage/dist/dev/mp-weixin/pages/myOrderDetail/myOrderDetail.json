@@ -1,5 +1,8 @@
 {
   "navigationBarTitleText": "我的订单",
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "uni-section": "/uni_modules/uni-section/components/uni-section/uni-section",
+    "uni-rate": "/uni_modules/uni-rate/components/uni-rate/uni-rate"
+  }
 }

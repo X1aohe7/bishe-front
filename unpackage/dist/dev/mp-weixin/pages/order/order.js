@@ -98,6 +98,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
+try {
+  components = {
+    uniSection: function () {
+      return __webpack_require__.e(/*! import() | uni_modules/uni-section/components/uni-section/uni-section */ "uni_modules/uni-section/components/uni-section/uni-section").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-section/components/uni-section/uni-section.vue */ 255))
+    },
+    uniDataCheckbox: function () {
+      return Promise.all(/*! import() | uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox.vue */ 262))
+    },
+    uniDatetimePicker: function () {
+      return Promise.all(/*! import() | uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker.vue */ 278))
+    },
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
 var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -195,6 +224,20 @@ var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/r
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
@@ -209,7 +252,16 @@ var _default = {
       remark: "",
       obj: {},
       deliveryAddress: null,
-      price: ""
+      price: "",
+      serviceWay: 0,
+      way: [{
+        text: '立即上门',
+        value: 0
+      }, {
+        text: '预约',
+        value: 1
+      }],
+      endTime: ""
     };
   },
   onLoad: function onLoad(options) {
@@ -246,9 +298,45 @@ var _default = {
     // console.log(formattedDateTime);  
     // 在页面上显示当前日期和时间（可根据需要修改显示方式）  
     // this.$u.alert(formattedDateTime);  
-  },
+    // const endDateTime = new Date();
 
+    // 设置结束时间：当前时间 + 7 天
+    var endDateTime = new Date(currentDateTime); // 创建当前时间的副本
+    endDateTime.setDate(currentDateTime.getDate() + 7); // 增加 7 天
+
+    // 格式化结束时间
+    var endYear = endDateTime.getFullYear();
+    var endMonth = (endDateTime.getMonth() + 1).toString().padStart(2, '0'); // 补零
+    var endDay = endDateTime.getDate().toString().padStart(2, '0'); // 补零
+    var endHours = endDateTime.getHours().toString().padStart(2, '0'); // 补零
+    var endMinutes = endDateTime.getMinutes().toString().padStart(2, '0'); // 补零
+    var endSeconds = endDateTime.getSeconds().toString().padStart(2, '0'); // 补零
+
+    this.endTime = "".concat(endYear, "-").concat(endMonth, "-").concat(endDay, " ").concat(endHours, ":").concat(endMinutes, ":").concat(endSeconds);
+  },
   methods: {
+    changeLog: function changeLog() {
+      // console.log(this.formattedDateTime)
+    },
+    getCurrentTime: function getCurrentTime() {
+      var currentDateTime = new Date();
+
+      // 获取年、月、日、时、分、秒  
+      var year = currentDateTime.getFullYear();
+      var month = currentDateTime.getMonth() + 1; // 月份是从 0 开始的，所以需要加 1  
+      var day = currentDateTime.getDate();
+      var hours = currentDateTime.getHours();
+      var minutes = currentDateTime.getMinutes();
+      var seconds = currentDateTime.getSeconds();
+
+      // 使用 padStart 在数字不满10的情况下在其后面添加0  
+      var formattedDay = day.toString().padStart(2, '0');
+      var formattedMinutes = minutes.toString().padStart(2, '0');
+      var formattedSeconds = seconds.toString().padStart(2, '0');
+
+      // 将年、月、日、时、分、秒拼接成字符串格式，例如 "2023-07-19 14:30:00"  
+      this.formattedDateTime = "".concat(year, "-").concat(month, "-").concat(formattedDay, " ").concat(hours, ":").concat(formattedMinutes, ":").concat(formattedSeconds);
+    },
     gotoUserAddress: function gotoUserAddress() {
       uni.navigateTo({
         url: "/pages/userAddress/userAddress"
@@ -259,89 +347,87 @@ var _default = {
       console.log('picker发送选择改变，携带值为', e.detail.value);
       this.region = e.detail.value;
     },
-    sureClick: function sureClick() {
+    // async  sureClick(){
+    // 	var obj={
+    // 		name:this.region.join(",")+this.address,
+    // 		linkman:"",
+    // 		phone:"123456",
+    // 		uid:uni.getStorageSync("userId")
+    // 	}
+    // 	const res= await uni.request({
+    // 	  method:'POST',
+    // 	  url:"/address/add",
+    // 	  data:obj
+    // 	});
+    // 	console.log(res)
+    // 	uni.showToast({
+    // 		title: res[1].data,//标题 必填
+    // 		icon: 'none',//图标
+    // 	});
+    // },
+    payClick: function payClick() {
       var _this = this;
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-        var obj, res;
+        var obj;
         return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 obj = {
-                  name: _this.region.join(",") + _this.address,
-                  linkman: "",
-                  phone: "123456",
-                  uid: uni.getStorageSync("userId")
-                };
-                _context.next = 3;
-                return uni.request({
+                  addressId: _this.deliveryAddress.addressId,
+                  // time:this.formattedDateTime,
+                  // phone:"123456",
+                  userId: uni.getStorageSync("userId"),
+                  nursingId: _this.obj.nursingId,
+                  nurName: _this.obj.nurseName,
+                  remark: _this.remark,
+                  price: _this.obj.price
+                }; // console.log(this.serviceWay)
+                if (_this.serviceWay == 0) {
+                  _this.getCurrentTime();
+                  obj.time = _this.formattedDateTime;
+                } else {
+                  obj.time = _this.formattedDateTime;
+                }
+                console.log(obj);
+                uni.request({
                   method: 'POST',
-                  url: "/address/add",
+                  url: "/orders/add",
                   data: obj
+                }).then(function (res) {
+                  console.log(res);
+                  var id = res[1].data.id;
+                  obj.ordersId = id;
+                  if (res[1].data.message == "成功") {
+                    uni.showToast({
+                      title: "成功",
+                      icon: "success",
+                      duration: 1500,
+                      // 显示时间设置为1.5秒
+                      mask: true // 遮罩防止用户操作
+                    });
+
+                    setTimeout(function () {
+                      // console.log(this.deliveryAddress)
+                      uni.redirectTo({
+                        // url:"/pages/evluate/evluate?nid="+obj.nursingId+"&address="+this.deliveryAddress.position+this.deliveryAddress.detail+"&nurseName="+obj.nurName+"&price="+obj.price+"&id="+id
+                        url: "/pages/myOrderDetail/myOrderDetail?data=" + JSON.stringify(obj)
+                      });
+                    }, 1500);
+                  }
+                }).catch(function (err) {
+                  uni.showToast({
+                    title: "后台出错，请稍后再试",
+                    icon: "error",
+                    mask: true // 遮罩防止用户操作
+                  });
                 });
-              case 3:
-                res = _context.sent;
-                console.log(res);
-                uni.showToast({
-                  title: res[1].data,
-                  //标题 必填
-                  icon: 'none' //图标
-                });
-              case 6:
+              case 4:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
-      }))();
-    },
-    payClick: function payClick() {
-      var _this2 = this;
-      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
-        var obj, res, id;
-        return _regenerator.default.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                obj = {
-                  address: _this2.region.join(",") + _this2.address,
-                  time: _this2.formattedDateTime,
-                  // phone:"123456",
-                  uid: uni.getStorageSync("userId"),
-                  nid: _this2.obj.nid,
-                  nurName: _this2.obj.nurseName,
-                  remark: _this2.remark,
-                  price: _this2.obj.price
-                };
-                _context2.next = 3;
-                return uni.request({
-                  method: 'POST',
-                  url: "/order/add",
-                  data: obj
-                });
-              case 3:
-                res = _context2.sent;
-                console.log(res);
-                // console.log(this.obj)
-                id = res[1].data.id;
-                if (res[1].data.message == "成功") {
-                  uni.showToast({
-                    title: res[1].data,
-                    icon: "none"
-                  });
-                  setTimeout(function () {
-                    console.log(obj);
-                    uni.navigateTo({
-                      url: "/pages/evluate/evluate?nid=" + obj.nid + "&address=" + obj.address + "&nurseName=" + obj.nurName + "&price=" + obj.price + "&id=" + id
-                    });
-                  }, 1000);
-                }
-              case 7:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
       }))();
     }
   }

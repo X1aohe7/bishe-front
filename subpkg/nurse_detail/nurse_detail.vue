@@ -11,7 +11,7 @@
           <view class="line1">
             <view class="left">
               <text style="padding: 5px; font-size: 20px; white-space: nowrap;">{{item.nurseName}}</text>
-              <view>服务价格：<text style="color: red;font-weight: 700;">￥{{item.price}}</text></view>
+              <view>服务价格：<text style="color: red;font-weight: 700;">￥{{item.price}}/次</text></view>
             </view>
             
             <!-- <view class="star" > -->

@@ -98,6 +98,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
+try {
+  components = {
+    uniSection: function () {
+      return __webpack_require__.e(/*! import() | uni_modules/uni-section/components/uni-section/uni-section */ "uni_modules/uni-section/components/uni-section/uni-section").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-section/components/uni-section/uni-section.vue */ 255))
+    },
+    uniRate: function () {
+      return __webpack_require__.e(/*! import() | uni_modules/uni-rate/components/uni-rate/uni-rate */ "uni_modules/uni-rate/components/uni-rate/uni-rate").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-rate/components/uni-rate/uni-rate.vue */ 391))
+    },
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
 var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -135,7 +161,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(uni) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -193,20 +219,121 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
-      obj: {}
+      isComment: false,
+      obj: {},
+      address: "",
+      comment: "",
+      star: 0
     };
   },
   onLoad: function onLoad(options) {
-    console.log(JSON.parse(options.data));
+    console.log(JSON.parse(options.data), 666);
     this.obj = JSON.parse(options.data);
+    // console.log(this.obj.nursingId)
+    this.getAddress(this.obj.addressId);
+    this.getComment(this.obj.ordersId);
   },
   created: function created() {},
-  methods: {}
+  methods: {
+    onChange: function onChange(e) {
+      console.log('rate发生改变:' + JSON.stringify(e));
+      // console.log(this.rateValue);
+    },
+    commentClick: function commentClick() {
+      var _this = this;
+      uni.request({
+        method: 'POST',
+        url: "/comment/add",
+        data: {
+          ordersId: this.obj.ordersId,
+          userId: uni.getStorageSync("userId"),
+          nursingId: this.obj.nursingId,
+          comment: this.comment,
+          star: this.star
+        }
+      }).then(function (res) {
+        _this.isComment = true;
+        uni.showToast({
+          title: "评价成功！",
+          icon: "success"
+        });
+      }).catch(function (err) {
+        uni.showToast({
+          title: "评价失败，请稍后再试",
+          icon: "fail"
+        });
+      });
+    },
+    getComment: function getComment(id) {
+      var _this2 = this;
+      uni.request({
+        method: 'GET',
+        url: "/comment/getCommentByOrdersId",
+        data: {
+          ordersId: String(id)
+        }
+      }).then(function (res) {
+        console.log(res);
+        // this.address=res[1].data
+        if (res[1].statusCode === 200) {
+          // 请求成功
+          console.log(res);
+          _this2.isComment = true;
+          // this.address = res[1].data;
+          console.log(res[1].data);
+          _this2.comment = res[1].data.comment;
+          _this2.star = res[1].data.star;
+        } else {
+          // 请求失败，根据状态码处理
+          _this2.isComment = false;
+        }
+      }).catch(function (err) {
+        console.log(err, "err");
+      });
+    },
+    getAddress: function getAddress(id) {
+      var _this3 = this;
+      uni.request({
+        method: 'GET',
+        url: "/address/getByAddressId",
+        data: {
+          addressId: id
+        }
+      }).then(function (res) {
+        console.log(res, "dizhi");
+        _this3.address = res[1].data;
+      }).catch(function (err) {
+        uni.showToast({
+          title: "地址获取错误！",
+          icon: "fail"
+        });
+      });
+    }
+  }
 };
 exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 

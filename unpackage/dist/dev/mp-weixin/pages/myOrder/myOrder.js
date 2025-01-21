@@ -208,7 +208,7 @@ var _default = {
                 _context.next = 2;
                 return uni.request({
                   method: 'GET',
-                  url: "/order/list",
+                  url: "/orders/list",
                   data: {
                     uid: uni.getStorageSync("userId")
                   }
