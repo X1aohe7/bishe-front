@@ -1,6 +1,8 @@
 <template>
 	<view>
-		<button class="mini-btn" style="margin-left: 20rpx;" type="default" size="mini" @click="addClick">新增</button>
+		<view style="text-align: right; padding-right: 20rpx;">
+		  <button class="mini-btn" type="default" size="mini" @click="addClick">新增</button>
+		</view>
 		<view class="two" v-for="(item,index) in addressArr" :key="index">
 			<view class="two1">
 				<view>
@@ -10,14 +12,20 @@
 				
 				<view>
 					<text>用药次数:{{item.everyday}}</text>
-					<text>提醒时间:{{item.time}}</text>
+					<text>用药时长:{{item.duration}}</text>
 				</view>
 				
 			<view>
-				<text>用药时长:{{item.duration}}</text>
-				<button class="mini-btn" style="margin-top: 20rpx;" type="warn" size="mini" @click="deleteClick(item)">删除</button>
+				
+				<text>提醒时间:</text>
+        <text v-for="(time, idx) in item.reminderTime" :key="idx">
+          {{ time }}
+        </text>
 			</view>	
 			</view>
+      <view class="two2">
+        <button class="mini-btn" style="margin-top: 20rpx;" type="warn" size="mini" @click="deleteClick(item)">删除</button>
+      </view>
 			
 
 		</view>
@@ -56,13 +64,15 @@
 			
 			async deleteClick(item){
 				console.log(item);
-				var id={
-					id:item.id
-				}
+
 				const res= await uni.request({
 				  method:'POST',
-				  url:"/medicine/remove?id="+item.id,
+				  url:"/medicine/remove?id="+item.medicineId,
 				});
+        uni.showToast({
+          icon:'success',
+          title:'删除成功！'
+        })
 				this.init()
 			},
 			addClick(){
@@ -86,15 +96,18 @@
 	padding: 20rpx;
 	margin-top: 25rpx;
 	border-radius: 21rpx;
+  display:flex;
+
 }
 
 .two1{
 	width: 100%;
 	height: 190rpx;
-	border-bottom: 1px #ccc solid;
+	
 	display: flex;
 	/* align-items: center; */
 	flex-direction: column;
+  flex: 3;
 }
 .two1 view{
 	display: flex;
@@ -106,7 +119,7 @@
 	margin-left: 12px;
 }
 .two2{
-	width: 100%;
+	/* width: 100%; */
 	display: flex;
 	align-items: center;
 	margin-top: 20rpx;

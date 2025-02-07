@@ -131,11 +131,9 @@ var render = function () {
       ? _vm.__map(_vm.comment, function (c, i) {
           var $orig = _vm.__get_orig(c)
           var l0 = parseInt(c.star)
-          var g1 = c.time.split("T")
           return {
             $orig: $orig,
             l0: l0,
-            g1: g1,
           }
         })
       : null

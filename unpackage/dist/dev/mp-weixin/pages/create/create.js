@@ -209,59 +209,46 @@ var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/r
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var _default = {
   data: function data() {
-    var currentDate = this.getDate({
-      format: true
-    });
     return {
       title: 'picker',
-      array: ['中国', '美国', '巴西', '日本'],
       index: 0,
-      date: currentDate,
-      time: '12:01',
+      // date: currentDate,
+      time: '12:00',
       name: "",
       num: "",
       everyday: "",
-      duration: ""
+      duration: "",
+      timeList: ['12:00'],
+      // 存储选中的时间
+      createdTime: null
     };
   },
   methods: {
-    bindPickerChange: function bindPickerChange(e) {
-      console.log('picker发送选择改变，携带值为', e.detail.value);
-      this.index = e.detail.value;
+    getCurrentTime: function getCurrentTime() {
+      var currentDateTime = new Date();
+
+      // 获取年、月、日、时、分、秒  
+      var year = currentDateTime.getFullYear();
+      var month = currentDateTime.getMonth() + 1; // 月份是从 0 开始的，所以需要加 1  
+      var day = currentDateTime.getDate();
+      var hours = currentDateTime.getHours();
+      var minutes = currentDateTime.getMinutes();
+      var seconds = currentDateTime.getSeconds();
+
+      // 使用 padStart 在数字不满10的情况下在其后面添加0  
+      var formattedDay = day.toString().padStart(2, '0');
+      var formattedMinutes = minutes.toString().padStart(2, '0');
+      var formattedSeconds = seconds.toString().padStart(2, '0');
+
+      // 将年、月、日、时、分、秒拼接成字符串格式，例如 "2023-07-19 14:30:00"  
+      this.createdTime = "".concat(year, "-").concat(month, "-").concat(formattedDay, " ").concat(hours, ":").concat(formattedMinutes, ":").concat(formattedSeconds);
     },
-    bindDateChange: function bindDateChange(e) {
-      this.date = e.detail.value;
-    },
-    bindTimeChange: function bindTimeChange(e) {
-      this.time = e.detail.value;
-    },
-    getDate: function getDate(type) {
-      var date = new Date();
-      var year = date.getFullYear();
-      var month = date.getMonth() + 1;
-      var day = date.getDate();
-      if (type === 'start') {
-        year = year - 60;
-      } else if (type === 'end') {
-        year = year + 2;
-      }
-      month = month > 9 ? month : '0' + month;
-      day = day > 9 ? day : '0' + day;
-      return "".concat(year, "-").concat(month, "-").concat(day);
+    bindTimeChange: function bindTimeChange(e, index) {
+      this.timeList[index] = e.detail.value;
+      this.$forceUpdate(); // 确保数据变化被 Vue 监听到
+      console.log(this.timeList);
     },
     saveClick: function saveClick() {
       var _this = this;
@@ -271,43 +258,60 @@ var _default = {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                _this.getCurrentTime();
                 obj = {
                   name: _this.name,
                   num: _this.num,
-                  everyday: _this.everyday,
+                  everyday: _this.timeList.length,
                   duration: _this.duration,
-                  uid: uni.getStorageSync("userId"),
-                  time: _this.time
+                  userId: uni.getStorageSync("userId"),
+                  reminderTime: _this.timeList,
+                  createdTime: _this.createdTime
                 };
-                _context.next = 3;
+                _context.next = 4;
                 return uni.request({
                   method: 'POST',
                   url: "/medicine/add",
                   data: obj
                 });
-              case 3:
+              case 4:
                 res = _context.sent;
                 console.log(res);
                 uni.navigateTo({
                   url: "/pages/myMeicdal/myMeicdal"
                 });
-              case 6:
+              case 7:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
+    },
+    // 新增 picker（最多 3 个）
+    addPicker: function addPicker() {
+      if (this.timeList.length < 3) {
+        this.timeList.push("12:00"); // 初始为空，等待用户选择
+      } else {
+        uni.showToast({
+          title: "最多只能添加 3 个时间",
+          icon: "none"
+        });
+      }
+    },
+    // 删除某个 picker
+    removeTime: function removeTime(index) {
+      if (this.timeList.length > 1) {
+        this.timeList.splice(index, 1);
+      } else {
+        uni.showToast({
+          title: "最少要有一个时间",
+          icon: "none"
+        });
+      }
     }
   },
-  computed: {
-    startDate: function startDate() {
-      return this.getDate('start');
-    },
-    endDate: function endDate() {
-      return this.getDate('end');
-    }
-  }
+  mounted: function mounted() {}
 };
 exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))

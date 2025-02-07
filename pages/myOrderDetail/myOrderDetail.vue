@@ -76,7 +76,8 @@
 				obj:{},
         address:"",
         comment:"",
-        star:0
+        star:0,
+        time:null
 			}
 		},
 		onLoad(options) {
@@ -94,11 +95,31 @@
 
 		},
 		methods: {
+      getCurrentTime(){
+        const currentDateTime = new Date();
+          
+        // 获取年、月、日、时、分、秒  
+        const year = currentDateTime.getFullYear();  
+        const month = currentDateTime.getMonth() + 1; // 月份是从 0 开始的，所以需要加 1  
+        const day = currentDateTime.getDate();  
+        const hours = currentDateTime.getHours();  
+        const minutes = currentDateTime.getMinutes();  
+        const seconds = currentDateTime.getSeconds();  
+          
+        // 使用 padStart 在数字不满10的情况下在其后面添加0  
+        const formattedDay = day.toString().padStart(2, '0');  
+        const formattedMinutes = minutes.toString().padStart(2, '0');  
+        const formattedSeconds = seconds.toString().padStart(2, '0');  
+          
+        // 将年、月、日、时、分、秒拼接成字符串格式，例如 "2023-07-19 14:30:00"  
+        this.time = `${year}-${month}-${formattedDay} ${hours}:${formattedMinutes}:${formattedSeconds}`;  
+      },
       onChange(e) {
         console.log('rate发生改变:' + JSON.stringify(e))
         // console.log(this.rateValue);
       },
       commentClick(){
+        this.getCurrentTime()
         uni.request({
           method:'POST',
           url:"/comment/add",
@@ -107,7 +128,8 @@
             userId:uni.getStorageSync("userId"),
             nursingId:this.obj.nursingId,
             comment:this.comment,
-            star:this.star
+            star:this.star,
+            time:this.time
           }
         }).then(res=>{
           this.isComment=true

@@ -104,7 +104,7 @@ try {
       return __webpack_require__.e(/*! import() | uni_modules/uni-section/components/uni-section/uni-section */ "uni_modules/uni-section/components/uni-section/uni-section").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-section/components/uni-section/uni-section.vue */ 255))
     },
     uniRate: function () {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-rate/components/uni-rate/uni-rate */ "uni_modules/uni-rate/components/uni-rate/uni-rate").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-rate/components/uni-rate/uni-rate.vue */ 391))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-rate/components/uni-rate/uni-rate */ "uni_modules/uni-rate/components/uni-rate/uni-rate").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-rate/components/uni-rate/uni-rate.vue */ 315))
     },
   }
 } catch (e) {
@@ -244,7 +244,8 @@ var _default = {
       obj: {},
       address: "",
       comment: "",
-      star: 0
+      star: 0,
+      time: null
     };
   },
   onLoad: function onLoad(options) {
@@ -256,12 +257,32 @@ var _default = {
   },
   created: function created() {},
   methods: {
+    getCurrentTime: function getCurrentTime() {
+      var currentDateTime = new Date();
+
+      // 获取年、月、日、时、分、秒  
+      var year = currentDateTime.getFullYear();
+      var month = currentDateTime.getMonth() + 1; // 月份是从 0 开始的，所以需要加 1  
+      var day = currentDateTime.getDate();
+      var hours = currentDateTime.getHours();
+      var minutes = currentDateTime.getMinutes();
+      var seconds = currentDateTime.getSeconds();
+
+      // 使用 padStart 在数字不满10的情况下在其后面添加0  
+      var formattedDay = day.toString().padStart(2, '0');
+      var formattedMinutes = minutes.toString().padStart(2, '0');
+      var formattedSeconds = seconds.toString().padStart(2, '0');
+
+      // 将年、月、日、时、分、秒拼接成字符串格式，例如 "2023-07-19 14:30:00"  
+      this.time = "".concat(year, "-").concat(month, "-").concat(formattedDay, " ").concat(hours, ":").concat(formattedMinutes, ":").concat(formattedSeconds);
+    },
     onChange: function onChange(e) {
       console.log('rate发生改变:' + JSON.stringify(e));
       // console.log(this.rateValue);
     },
     commentClick: function commentClick() {
       var _this = this;
+      this.getCurrentTime();
       uni.request({
         method: 'POST',
         url: "/comment/add",
@@ -270,7 +291,8 @@ var _default = {
           userId: uni.getStorageSync("userId"),
           nursingId: this.obj.nursingId,
           comment: this.comment,
-          star: this.star
+          star: this.star,
+          time: this.time
         }
       }).then(function (res) {
         _this.isComment = true;

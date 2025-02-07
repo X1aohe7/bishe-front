@@ -16,53 +16,41 @@
 					</view>
 				</view>
 				
-				<view class="uni-title uni-common-pl">用药次数</view>
+				<!-- <view class="uni-title uni-common-pl">用药次数</view>
 				<view class="uni-list">
 					<view class="uni-list-cell">
 						<input type="text" v-model="everyday" class="uni-input">
 					</view>
-				</view>
-				<!-- <view class="uni-title uni-common-pl">地区选择器</view>
+				</view> -->
+				
+		
+				<!-- <view class="uni-title uni-common-pl">提醒时间</view>
 				<view class="uni-list">
 					<view class="uni-list-cell">
 						<view class="uni-list-cell-left">
 							当前选择
 						</view>
 						<view class="uni-list-cell-db">
-							<picker @change="bindPickerChange" :value="index" :range="array">
-								<view class="uni-input">{{array[index]}}</view>
+							<picker mode="time" :value="time" start="00:00" end="23:59" @change="bindTimeChange">
+								<view class="uni-input">{{time}}</view>
 							</picker>
 						</view>
 					</view>
 				</view> -->
 		
 				<view class="uni-title uni-common-pl">提醒时间</view>
-				<view class="uni-list">
-					<view class="uni-list-cell">
-						<view class="uni-list-cell-left">
-							当前选择
-						</view>
-						<view class="uni-list-cell-db">
-							<picker mode="time" :value="time" start="09:01" end="21:01" @change="bindTimeChange">
-								<view class="uni-input">{{time}}</view>
-							</picker>
-						</view>
-					</view>
-				</view>
-		
-				<!-- <view class="uni-title uni-common-pl">日期选择器</view>
-				<view class="uni-list">
-					<view class="uni-list-cell">
-						<view class="uni-list-cell-left">
-							当前选择
-						</view>
-						<view class="uni-list-cell-db">
-							<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
-								<view class="uni-input">{{date}}</view>
-							</picker>
-						</view>
-					</view>
-				</view> -->
+				    <view class="uni-list">
+				      <view class="uni-list-cell" v-for="(item, index) in timeList" :key="index">
+				        <view class="uni-list-cell-left">当前选择</view>
+				        <view class="uni-list-cell-db">
+				          <picker mode="time" :value="item" start="00:00" end="23:59" @change="bindTimeChange($event, index)">
+				            <view class="uni-input">{{ item || "请选择时间" }}</view>
+				          </picker>
+				        </view>
+				        <button class="mini-btn" type="warn" size="mini" @click="removeTime(index)">删除</button>
+				      </view>
+				    </view>
+				    <button class="mini-btn" type="primary" size="mini" @click="addPicker">新增时间</button>
 				
 				<view class="uni-title uni-common-pl">用药天数</view>
 				<view class="uni-list">
@@ -78,59 +66,61 @@
 <script>
 	export default {
 		data() {
-			const currentDate = this.getDate({
-			            format: true
-			        })
+			
 			return {
 				title: 'picker',
-				array: ['中国', '美国', '巴西', '日本'],
+				
 				index: 0,
-				date: currentDate,
-				time: '12:01',
+				// date: currentDate,
+				time: '12:00',
 				name:"",
 				num:"",
 				everyday:"",
-				duration:""
+				duration:"",
+        timeList: ['12:00'] ,// 存储选中的时间
+        createdTime:null
 			}
 		},
 		methods: {
-			bindPickerChange: function(e) {
-			            console.log('picker发送选择改变，携带值为', e.detail.value)
-			            this.index = e.detail.value
-			        },
-			        bindDateChange: function(e) {
-			            this.date = e.detail.value
-			        },
-			        bindTimeChange: function(e) {
-			            this.time = e.detail.value
-			        },
-			        getDate(type) {
-			            const date = new Date();
-			            let year = date.getFullYear();
-			            let month = date.getMonth() + 1;
-			            let day = date.getDate();
-			
-			            if (type === 'start') {
-			                year = year - 60;
-			            } else if (type === 'end') {
-			                year = year + 2;
-			            }
-			            month = month > 9 ? month : '0' + month;
-			            day = day > 9 ? day : '0' + day;
-			            return `${year}-${month}-${day}`;
-			        },
+      getCurrentTime(){
+        const currentDateTime = new Date();
+          
+        // 获取年、月、日、时、分、秒  
+        const year = currentDateTime.getFullYear();  
+        const month = currentDateTime.getMonth() + 1; // 月份是从 0 开始的，所以需要加 1  
+        const day = currentDateTime.getDate();  
+        const hours = currentDateTime.getHours();  
+        const minutes = currentDateTime.getMinutes();  
+        const seconds = currentDateTime.getSeconds();  
+          
+        // 使用 padStart 在数字不满10的情况下在其后面添加0  
+        const formattedDay = day.toString().padStart(2, '0');  
+        const formattedMinutes = minutes.toString().padStart(2, '0');  
+        const formattedSeconds = seconds.toString().padStart(2, '0');  
+          
+        // 将年、月、日、时、分、秒拼接成字符串格式，例如 "2023-07-19 14:30:00"  
+        this.createdTime = `${year}-${month}-${formattedDay} ${hours}:${formattedMinutes}:${formattedSeconds}`;  
+      },
+       bindTimeChange(e, index) {
+         this.timeList[index] = e.detail.value;
+         this.$forceUpdate(); // 确保数据变化被 Vue 监听到
+         console.log(this.timeList)
+       },
+      
 					
 					
 					
 					
 	async saveClick(){
+    this.getCurrentTime()
 			var obj={
 				name:this.name,
 				num:this.num,
-				everyday:this.everyday,
+				everyday:this.timeList.length,
 				duration:this.duration,
-				uid:uni.getStorageSync("userId"),
-				time:this.time
+				userId:uni.getStorageSync("userId"),
+				reminderTime:this.timeList,
+        createdTime:this.createdTime
 			}
 			const res= await uni.request({
 			  method:'POST',
@@ -141,19 +131,38 @@
 			uni.navigateTo({
 				url:"/pages/myMeicdal/myMeicdal"
 			})
-		}
+		},
+        // 新增 picker（最多 3 个）
+        addPicker() {
+          if (this.timeList.length < 3) {
+            this.timeList.push("12:00"); // 初始为空，等待用户选择
+          } else {
+            uni.showToast({
+              title: "最多只能添加 3 个时间",
+              icon: "none"
+            });
+          }
+        },
+        // 删除某个 picker
+        removeTime(index) {
+          if (this.timeList.length > 1) {
+            this.timeList.splice(index, 1);
+          } else {
+            uni.showToast({
+              title: "最少要有一个时间",
+              icon: "none"
+            });
+          }
+          
+        }
+    
 					
 			
 		},
+		mounted() {
+		  
+		},
 		
-		computed:{
-			startDate() {
-			            return this.getDate('start');
-			        },
-			        endDate() {
-			            return this.getDate('end');
-			        }
-		}
 	}
 </script>
 

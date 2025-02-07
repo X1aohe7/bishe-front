@@ -182,6 +182,14 @@ var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/r
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
@@ -220,22 +228,23 @@ var _default = {
     deleteClick: function deleteClick(item) {
       var _this2 = this;
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
-        var id, res;
+        var res;
         return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 console.log(item);
-                id = {
-                  id: item.id
-                };
-                _context2.next = 4;
+                _context2.next = 3;
                 return uni.request({
                   method: 'POST',
-                  url: "/medicine/remove?id=" + item.id
+                  url: "/medicine/remove?id=" + item.medicineId
                 });
-              case 4:
+              case 3:
                 res = _context2.sent;
+                uni.showToast({
+                  icon: 'success',
+                  title: '删除成功！'
+                });
                 _this2.init();
               case 6:
               case "end":

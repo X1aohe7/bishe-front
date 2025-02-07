@@ -19871,7 +19871,7 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 320:
+/***/ 327:
 /*!******************************************************************************************************!*\
   !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-load-more/components/uni-load-more/i18n/index.js ***!
   \******************************************************************************************************/
@@ -19886,9 +19886,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 321));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 322));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 323));
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 328));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 329));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 330));
 var _default = {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -19898,7 +19898,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 321:
+/***/ 328:
 /*!*****************************************************************************************************!*\
   !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-load-more/components/uni-load-more/i18n/en.json ***!
   \*****************************************************************************************************/
@@ -19909,7 +19909,7 @@ module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"Pull up to show mo
 
 /***/ }),
 
-/***/ 322:
+/***/ 329:
 /*!**********************************************************************************************************!*\
   !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-load-more/components/uni-load-more/i18n/zh-Hans.json ***!
   \**********************************************************************************************************/
@@ -19917,17 +19917,6 @@ module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"Pull up to show mo
 /***/ (function(module) {
 
 module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"上拉显示更多\",\"uni-load-more.contentrefresh\":\"正在加载...\",\"uni-load-more.contentnomore\":\"没有更多数据了\"}");
-
-/***/ }),
-
-/***/ 323:
-/*!**********************************************************************************************************!*\
-  !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-load-more/components/uni-load-more/i18n/zh-Hant.json ***!
-  \**********************************************************************************************************/
-/*! exports provided: uni-load-more.contentdown, uni-load-more.contentrefresh, uni-load-more.contentnomore, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"上拉顯示更多\",\"uni-load-more.contentrefresh\":\"正在加載...\",\"uni-load-more.contentnomore\":\"沒有更多數據了\"}");
 
 /***/ }),
 
@@ -19983,6 +19972,17 @@ var store = new _vuex.default.Store({
 var _default = store;
 exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+
+/***/ 330:
+/*!**********************************************************************************************************!*\
+  !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-load-more/components/uni-load-more/i18n/zh-Hant.json ***!
+  \**********************************************************************************************************/
+/*! exports provided: uni-load-more.contentdown, uni-load-more.contentrefresh, uni-load-more.contentnomore, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"上拉顯示更多\",\"uni-load-more.contentrefresh\":\"正在加載...\",\"uni-load-more.contentnomore\":\"沒有更多數據了\"}");
 
 /***/ }),
 
