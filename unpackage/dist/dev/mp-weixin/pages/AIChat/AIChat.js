@@ -137,13 +137,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {
 
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 41));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 43));
 //
 //
 //
@@ -161,108 +158,109 @@ var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/r
 //
 //
 var _default = {
+  onLoad: function onLoad(options) {
+    // console.log(JSON.parse(options.data),666);
+    if (options.data && options.data != "null") {
+      this.conversationId = options.data;
+    }
+
+    // console.log(this.conversationId)
+    this.getChatDetail();
+  },
   data: function data() {
     return {
+      conversationId: null,
       messages: [],
       newMessage: ''
     };
   },
   methods: {
-    sendMessage: function sendMessage() {
+    getChatDetail: function getChatDetail() {
       var _this = this;
-      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-        var postData, res, AI;
-        return _regenerator.default.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                if (_this.newMessage.trim()) {
-                  _context.next = 2;
-                  break;
-                }
-                return _context.abrupt("return");
-              case 2:
-                _this.messages.push({
-                  text: _this.newMessage,
-                  sender: 'user'
-                });
-                postData = {
-                  "user_input": _this.newMessage
-                };
-                _this.newMessage = '';
-                // const res=await fetch({
-                //   url: 'http://localhost:5000/chat/',
-                //   method:'POST',
-                //   headers: {
-                //       'Content-Type': 'application/json'
-                //     },
-                //     body: JSON.stringify(postdata)
-                // })
-                _context.next = 7;
-                return uni.request({
-                  url: 'http://localhost:5000/chat',
-                  method: 'POST',
-                  data: postData
-                  // success: (res) => {
-                  //   console.log(res.data); // 输出返回的数据
-                  //   // 在成功发送消息后，将 AI 的回复消息显示在界面上
-                  //   this.messages.push({ text: res.data, sender: 'bot' });
-                  //  }
-                });
-              case 7:
-                res = _context.sent;
-                console.log(res);
-                AI = res[1].data.response; // 模拟 AI 回复消息
-                // setTimeout(() => {
-                //   this.messages.push({ text: AI, sender: 'bot' });
-                //   // 滚动到底部
-                //   this.$nextTick(() => {
-                //     this.$refs.scrollView && this.$refs.scrollView.scrollIntoView('.message:last-child');
-                //   });
-                // }, 500);
-                _this.messages.push({
-                  text: AI,
-                  sender: 'bot'
-                });
-                // 滚动到底部
-                // this.$nextTick(() => {
-                //   this.$refs.scrollView && this.$refs.scrollView.scrollIntoView('.message:last-child');
-                // });
-                // 等待页面更新后滚动到底部
-                // setTimeout(() => {
-                //   this.scrollToBottom();
-                // }, 100);
-              case 11:
-              case "end":
-                return _context.stop();
-            }
+      if (this.conversationId === null) {
+        return;
+      } else {
+        uni.request({
+          url: '/aichat/getChatDetail',
+          data: {
+            conversationId: this.conversationId
           }
-        }, _callee);
-      }))();
+        }).then(function (res) {
+          console.log(res);
+          _this.messages = res[1].data;
+        }).catch(function (err) {
+          console.log(err);
+          uni.showToast({
+            title: "获取失败，请稍后重试",
+            icon: 'none',
+            duration: 2000
+          });
+        });
+      }
     },
-    // sendMessage() {
-    //   if (!this.newMessage.trim()) return;
-    //   this.messages.push({ text: this.newMessage, sender: 'user' });
-    //   const postData = { "user_input": this.newMessage };
-    //   this.newMessage = '';
-    //   uni.request({
-    //     url: 'http://localhost:5000/chat',
-    //     method: 'POST',
-    //     data: postData,
-    //     success: (res) => {
-    //       console.log(res);
-    //       const AI = res.data.response;
-    //       this.messages.push({ text: AI, sender: 'bot' });
-    //       // 滚动到底部
-    //       setTimeout(() => {
-    //         this.scrollToBottom();
-    //       }, 100);
-    //     },
-    //     fail: (err) => {
-    //       console.error('Failed to send message:', err);
-    //     }
-    //   });
-    // },
+    sendMessage: function sendMessage() {
+      var _this2 = this;
+      if (!this.newMessage.trim()) return;
+      this.messages.push({
+        content: this.newMessage,
+        role: 'user'
+      });
+      this.scrollToBottom();
+      var postData = {
+        userInput: this.newMessage,
+        userId: uni.getStorageSync("userId")
+        // conversationId: this.conversationId
+      };
+
+      if (this.conversationId != null) {
+        postData.conversationId = this.conversationId;
+      }
+      this.newMessage = '';
+      uni.request({
+        url: '/aichat/getAnswer',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        data: postData
+      }).then(function (res) {
+        if (_this2.conversationId === null) {
+          _this2.conversationId = res[1].data.conversationId;
+        }
+        console.log(res);
+        var AI = res[1].data.content;
+        _this2.messages.push({
+          content: AI,
+          sender: 'assistant'
+        });
+        _this2.scrollToBottom();
+      }).catch(function (err) {
+        console.log(err);
+        uni.showToast({
+          title: "获取失败，请稍后重试",
+          icon: 'none',
+          duration: 2000
+        });
+      });
+
+      // 模拟 AI 回复消息
+      // setTimeout(() => {
+      //   this.messages.push({ text: AI, sender: 'bot' });
+      //   // 滚动到底部
+      //   this.$nextTick(() => {
+      //     this.$refs.scrollView && this.$refs.scrollView.scrollIntoView('.message:last-child');
+      //   });
+      // }, 500);
+
+      // 滚动到底部
+      this.$nextTick(function () {
+        _this2.$refs.scrollView && _this2.$refs.scrollView.scrollIntoView('.message:last-child');
+      });
+      // 等待页面更新后滚动到底部
+      setTimeout(function () {
+        _this2.scrollToBottom();
+      }, 100);
+    },
     scrollToBottom: function scrollToBottom() {
       uni.pageScrollTo({
         scrollTop: 9999,

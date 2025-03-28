@@ -3236,7 +3236,7 @@ module.exports = _classCallCheck, module.exports.__esModule = true, module.expor
 
 /***/ }),
 
-/***/ 231:
+/***/ 239:
 /*!*****************************************************************************************!*\
   !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \*****************************************************************************************/
@@ -10380,7 +10380,7 @@ internalMixin(Vue);
 
 /***/ }),
 
-/***/ 267:
+/***/ 275:
 /*!************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js ***!
   \************************************************************************************/
@@ -10396,19 +10396,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.uniCloud = exports.default = exports.UniCloudError = void 0;
 var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 41));
-var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ 268));
+var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ 276));
 var _slicedToArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ 5));
 var _typeof2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/typeof */ 13));
 var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ 18));
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 43));
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
-var _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/inherits */ 269));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ 270));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ 271));
-var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/wrapNativeSuper */ 272));
+var _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/inherits */ 277));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ 278));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ 279));
+var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/wrapNativeSuper */ 280));
 var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ 23));
 var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ 24));
-var _pages = _interopRequireDefault(__webpack_require__(/*! @/pages.json */ 274));
+var _pages = _interopRequireDefault(__webpack_require__(/*! @/pages.json */ 282));
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e34) { throw _e34; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e35) { didErr = true; err = _e35; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
@@ -10919,7 +10919,7 @@ var b = "development" === "development",
   x = true;
 var N = "";
 try {
-  N = (__webpack_require__(/*! uni-stat-config */ 275).default || __webpack_require__(/*! uni-stat-config */ 275)).appid;
+  N = (__webpack_require__(/*! uni-stat-config */ 283).default || __webpack_require__(/*! uni-stat-config */ 283)).appid;
 } catch (e) {}
 var R,
   L = {};
@@ -18781,7 +18781,7 @@ exports.default = Zs;
 
 /***/ }),
 
-/***/ 268:
+/***/ 276:
 /*!**********************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/assertThisInitialized.js ***!
   \**********************************************************************/
@@ -18798,7 +18798,7 @@ module.exports = _assertThisInitialized, module.exports.__esModule = true, modul
 
 /***/ }),
 
-/***/ 269:
+/***/ 277:
 /*!*********************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/inherits.js ***!
   \*********************************************************/
@@ -18826,7 +18826,7 @@ module.exports = _inherits, module.exports.__esModule = true, module.exports["de
 
 /***/ }),
 
-/***/ 270:
+/***/ 278:
 /*!**************************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js ***!
   \**************************************************************************/
@@ -18834,7 +18834,7 @@ module.exports = _inherits, module.exports.__esModule = true, module.exports["de
 /***/ (function(module, exports, __webpack_require__) {
 
 var _typeof = __webpack_require__(/*! ./typeof.js */ 13)["default"];
-var assertThisInitialized = __webpack_require__(/*! ./assertThisInitialized.js */ 268);
+var assertThisInitialized = __webpack_require__(/*! ./assertThisInitialized.js */ 276);
 function _possibleConstructorReturn(self, call) {
   if (call && (_typeof(call) === "object" || typeof call === "function")) {
     return call;
@@ -18847,7 +18847,7 @@ module.exports = _possibleConstructorReturn, module.exports.__esModule = true, m
 
 /***/ }),
 
-/***/ 271:
+/***/ 279:
 /*!***************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/getPrototypeOf.js ***!
   \***************************************************************/
@@ -18864,16 +18864,16 @@ module.exports = _getPrototypeOf, module.exports.__esModule = true, module.expor
 
 /***/ }),
 
-/***/ 272:
+/***/ 280:
 /*!****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/wrapNativeSuper.js ***!
   \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getPrototypeOf = __webpack_require__(/*! ./getPrototypeOf.js */ 271);
+var getPrototypeOf = __webpack_require__(/*! ./getPrototypeOf.js */ 279);
 var setPrototypeOf = __webpack_require__(/*! ./setPrototypeOf.js */ 16);
-var isNativeFunction = __webpack_require__(/*! ./isNativeFunction.js */ 273);
+var isNativeFunction = __webpack_require__(/*! ./isNativeFunction.js */ 281);
 var construct = __webpack_require__(/*! ./construct.js */ 15);
 function _wrapNativeSuper(Class) {
   var _cache = typeof Map === "function" ? new Map() : undefined;
@@ -18905,7 +18905,7 @@ module.exports = _wrapNativeSuper, module.exports.__esModule = true, module.expo
 
 /***/ }),
 
-/***/ 273:
+/***/ 281:
 /*!*****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/isNativeFunction.js ***!
   \*****************************************************************/
@@ -18923,7 +18923,7 @@ module.exports = _isNativeFunction, module.exports.__esModule = true, module.exp
 
 /***/ }),
 
-/***/ 274:
+/***/ 282:
 /*!*****************************************************************************!*\
   !*** D:/Code/biyesheji/bishe-front/pages.json?{"type":"origin-pages-json"} ***!
   \*****************************************************************************/
@@ -19081,6 +19081,11 @@ var _default = {
     "style": {
       "navigationBarTitleText": ""
     }
+  }, {
+    "path": "pages/AIHistory/AIHistory",
+    "style": {
+      "navigationBarTitleText": ""
+    }
   }],
   "tabBar": {
     "selectedColor": "#116B9B",
@@ -19121,7 +19126,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 275:
+/***/ 283:
 /*!****************************************************************!*\
   !*** D:/Code/biyesheji/bishe-front/pages.json?{"type":"stat"} ***!
   \****************************************************************/
@@ -19142,7 +19147,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 283:
+/***/ 291:
 /*!******************************************************************************************************************!*\
   !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/index.js ***!
   \******************************************************************************************************************/
@@ -19157,9 +19162,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 284));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 285));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 286));
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 292));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 293));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 294));
 var _default = {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -19169,7 +19174,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 284:
+/***/ 292:
 /*!*****************************************************************************************************************!*\
   !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/en.json ***!
   \*****************************************************************************************************************/
@@ -19180,7 +19185,7 @@ module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"select date\"
 
 /***/ }),
 
-/***/ 285:
+/***/ 293:
 /*!**********************************************************************************************************************!*\
   !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hans.json ***!
   \**********************************************************************************************************************/
@@ -19191,7 +19196,7 @@ module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"选择日期\
 
 /***/ }),
 
-/***/ 286:
+/***/ 294:
 /*!**********************************************************************************************************************!*\
   !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hant.json ***!
   \**********************************************************************************************************************/
@@ -19202,7 +19207,7 @@ module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"選擇日期\
 
 /***/ }),
 
-/***/ 287:
+/***/ 295:
 /*!************************************************************************************************************!*\
   !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-datetime-picker/components/uni-datetime-picker/util.js ***!
   \************************************************************************************************************/
@@ -19648,66 +19653,6 @@ function fixIosDateFormat(value) {
 
 /***/ }),
 
-/***/ 295:
-/*!********************************************************************************************************!*\
-  !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-search-bar/components/uni-search-bar/i18n/index.js ***!
-  \********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 296));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 297));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 298));
-var _default = {
-  en: _en.default,
-  'zh-Hans': _zhHans.default,
-  'zh-Hant': _zhHant.default
-};
-exports.default = _default;
-
-/***/ }),
-
-/***/ 296:
-/*!*******************************************************************************************************!*\
-  !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-search-bar/components/uni-search-bar/i18n/en.json ***!
-  \*******************************************************************************************************/
-/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"Search enter content\"}");
-
-/***/ }),
-
-/***/ 297:
-/*!************************************************************************************************************!*\
-  !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hans.json ***!
-  \************************************************************************************************************/
-/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"请输入搜索内容\"}");
-
-/***/ }),
-
-/***/ 298:
-/*!************************************************************************************************************!*\
-  !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hant.json ***!
-  \************************************************************************************************************/
-/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"請輸入搜索內容\"}");
-
-/***/ }),
-
 /***/ 3:
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
@@ -19736,6 +19681,66 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+
+/***/ 303:
+/*!********************************************************************************************************!*\
+  !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-search-bar/components/uni-search-bar/i18n/index.js ***!
+  \********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 304));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 305));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 306));
+var _default = {
+  en: _en.default,
+  'zh-Hans': _zhHans.default,
+  'zh-Hant': _zhHant.default
+};
+exports.default = _default;
+
+/***/ }),
+
+/***/ 304:
+/*!*******************************************************************************************************!*\
+  !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-search-bar/components/uni-search-bar/i18n/en.json ***!
+  \*******************************************************************************************************/
+/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"Search enter content\"}");
+
+/***/ }),
+
+/***/ 305:
+/*!************************************************************************************************************!*\
+  !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hans.json ***!
+  \************************************************************************************************************/
+/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"请输入搜索内容\"}");
+
+/***/ }),
+
+/***/ 306:
+/*!************************************************************************************************************!*\
+  !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hant.json ***!
+  \************************************************************************************************************/
+/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"請輸入搜索內容\"}");
 
 /***/ }),
 
@@ -19871,55 +19876,6 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 327:
-/*!******************************************************************************************************!*\
-  !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-load-more/components/uni-load-more/i18n/index.js ***!
-  \******************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 328));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 329));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 330));
-var _default = {
-  en: _en.default,
-  'zh-Hans': _zhHans.default,
-  'zh-Hant': _zhHant.default
-};
-exports.default = _default;
-
-/***/ }),
-
-/***/ 328:
-/*!*****************************************************************************************************!*\
-  !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-load-more/components/uni-load-more/i18n/en.json ***!
-  \*****************************************************************************************************/
-/*! exports provided: uni-load-more.contentdown, uni-load-more.contentrefresh, uni-load-more.contentnomore, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"Pull up to show more\",\"uni-load-more.contentrefresh\":\"loading...\",\"uni-load-more.contentnomore\":\"No more data\"}");
-
-/***/ }),
-
-/***/ 329:
-/*!**********************************************************************************************************!*\
-  !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-load-more/components/uni-load-more/i18n/zh-Hans.json ***!
-  \**********************************************************************************************************/
-/*! exports provided: uni-load-more.contentdown, uni-load-more.contentrefresh, uni-load-more.contentnomore, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"上拉显示更多\",\"uni-load-more.contentrefresh\":\"正在加载...\",\"uni-load-more.contentnomore\":\"没有更多数据了\"}");
-
-/***/ }),
-
 /***/ 33:
 /*!****************************************************!*\
   !*** D:/Code/biyesheji/bishe-front/store/index.js ***!
@@ -19972,17 +19928,6 @@ var store = new _vuex.default.Store({
 var _default = store;
 exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
-
-/***/ }),
-
-/***/ 330:
-/*!**********************************************************************************************************!*\
-  !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-load-more/components/uni-load-more/i18n/zh-Hant.json ***!
-  \**********************************************************************************************************/
-/*! exports provided: uni-load-more.contentdown, uni-load-more.contentrefresh, uni-load-more.contentnomore, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"上拉顯示更多\",\"uni-load-more.contentrefresh\":\"正在加載...\",\"uni-load-more.contentnomore\":\"沒有更多數據了\"}");
 
 /***/ }),
 
@@ -21240,6 +21185,66 @@ var index_cjs = {
 module.exports = index_cjs;
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 3)))
+
+/***/ }),
+
+/***/ 349:
+/*!******************************************************************************************************!*\
+  !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-load-more/components/uni-load-more/i18n/index.js ***!
+  \******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 350));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 351));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 352));
+var _default = {
+  en: _en.default,
+  'zh-Hans': _zhHans.default,
+  'zh-Hant': _zhHant.default
+};
+exports.default = _default;
+
+/***/ }),
+
+/***/ 350:
+/*!*****************************************************************************************************!*\
+  !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-load-more/components/uni-load-more/i18n/en.json ***!
+  \*****************************************************************************************************/
+/*! exports provided: uni-load-more.contentdown, uni-load-more.contentrefresh, uni-load-more.contentnomore, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"Pull up to show more\",\"uni-load-more.contentrefresh\":\"loading...\",\"uni-load-more.contentnomore\":\"No more data\"}");
+
+/***/ }),
+
+/***/ 351:
+/*!**********************************************************************************************************!*\
+  !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-load-more/components/uni-load-more/i18n/zh-Hans.json ***!
+  \**********************************************************************************************************/
+/*! exports provided: uni-load-more.contentdown, uni-load-more.contentrefresh, uni-load-more.contentnomore, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"上拉显示更多\",\"uni-load-more.contentrefresh\":\"正在加载...\",\"uni-load-more.contentnomore\":\"没有更多数据了\"}");
+
+/***/ }),
+
+/***/ 352:
+/*!**********************************************************************************************************!*\
+  !*** D:/Code/biyesheji/bishe-front/uni_modules/uni-load-more/components/uni-load-more/i18n/zh-Hant.json ***!
+  \**********************************************************************************************************/
+/*! exports provided: uni-load-more.contentdown, uni-load-more.contentrefresh, uni-load-more.contentnomore, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"上拉顯示更多\",\"uni-load-more.contentrefresh\":\"正在加載...\",\"uni-load-more.contentnomore\":\"沒有更多數據了\"}");
 
 /***/ }),
 

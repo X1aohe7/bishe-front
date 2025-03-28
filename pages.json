@@ -205,6 +205,13 @@
           {
             "navigationBarTitleText" : ""
           }
+        },
+        {
+          "path" : "pages/AIHistory/AIHistory",
+          "style" : 
+          {
+            "navigationBarTitleText" : ""
+          }
         }
     ],
     "tabBar": {

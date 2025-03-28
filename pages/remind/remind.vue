@@ -8,7 +8,7 @@
 				</view>
 				
 				<view>
-					<text>一次{{item.num}}颗/袋,一天{{item.everyday}}次,提醒时间:{{item.time}}</text>
+					<text>一次{{item.num}}颗/袋,一天{{item.everyday}}次,提醒时间:{{item.reminderTime}}</text>
 					<text></text>
 					<text></text>
 				</view>
@@ -17,21 +17,7 @@
 				<text>用药时长:{{item.duration}}天</text>
 			</view>	
 			</view>
-			
-
 		</view>
-		
-		<!-- <view class="two">
-			<view class="two1">
-				<text>地址: XXXXXX</text>
-			</view>
-		</view> -->
-		
-		<!-- <view class="two">
-			<view class="two1">
-				<text>地址: XXXXXX</text>
-			</view>
-		</view> -->
 	</view>
 </template>
 

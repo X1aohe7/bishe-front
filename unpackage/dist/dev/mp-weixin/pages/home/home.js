@@ -101,16 +101,16 @@ var components
 try {
   components = {
     uniIcons: function () {
-      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 226))
+      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 234))
     },
     mySearch: function () {
-      return __webpack_require__.e(/*! import() | components/my-search/my-search */ "components/my-search/my-search").then(__webpack_require__.bind(null, /*! @/components/my-search/my-search.vue */ 234))
+      return __webpack_require__.e(/*! import() | components/my-search/my-search */ "components/my-search/my-search").then(__webpack_require__.bind(null, /*! @/components/my-search/my-search.vue */ 242))
     },
     functionItem: function () {
-      return __webpack_require__.e(/*! import() | components/function-item/function-item */ "components/function-item/function-item").then(__webpack_require__.bind(null, /*! @/components/function-item/function-item.vue */ 241))
+      return __webpack_require__.e(/*! import() | components/function-item/function-item */ "components/function-item/function-item").then(__webpack_require__.bind(null, /*! @/components/function-item/function-item.vue */ 249))
     },
     serviceItem: function () {
-      return __webpack_require__.e(/*! import() | components/service-item/service-item */ "components/service-item/service-item").then(__webpack_require__.bind(null, /*! @/components/service-item/service-item.vue */ 248))
+      return __webpack_require__.e(/*! import() | components/service-item/service-item */ "components/service-item/service-item").then(__webpack_require__.bind(null, /*! @/components/service-item/service-item.vue */ 256))
     },
   }
 } catch (e) {
@@ -310,7 +310,7 @@ var _default = {
       }
       if (id == 4) {
         uni.navigateTo({
-          url: '/pages/AIChat/AIChat'
+          url: '/pages/AIHistory/AIHistory'
         });
       }
       // uni.switchTab({

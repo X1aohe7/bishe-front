@@ -150,7 +150,7 @@
 		}
     if(id==4){
       uni.navigateTo({
-        url:'/pages/AIChat/AIChat'
+        url:'/pages/AIHistory/AIHistory'
       })
     }
           // uni.switchTab({

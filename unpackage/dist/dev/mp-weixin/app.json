@@ -23,7 +23,8 @@
     "pages/AIChat/AIChat",
     "pages/userAddress/userAddress",
     "subpkg/editUserAddress/editUserAddress",
-    "subpkg/addUserAddress/addUserAddress"
+    "subpkg/addUserAddress/addUserAddress",
+    "pages/AIHistory/AIHistory"
   ],
   "subPackages": [],
   "window": {

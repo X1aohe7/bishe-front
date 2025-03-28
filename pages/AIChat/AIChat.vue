@@ -2,8 +2,8 @@
   <view>
     <view class="container">
       <scroll-view class="message-container" scroll-y ref="scrollView">
-        <view v-for="(message, index) in messages" :key="index" class="message" :class="{ 'received': message.sender === 'bot', 'sent': message.sender === 'user' }">
-          {{ message.text }}
+        <view v-for="(message, index) in messages" :key="index" class="message" :class="{ 'received': message.role === 'assistant', 'sent': message.role === 'user' }">
+          {{ message.content }}
         </view>
       </scroll-view>
       <view class="input-box-container">
@@ -16,41 +16,88 @@
 
 <script>
   export default {
+    onLoad(options) {
+    	// console.log(JSON.parse(options.data),666);
+      if(options.data && options.data != "null"){
+        this.conversationId=options.data
+      }
+      
+      // console.log(this.conversationId)
+      this.getChatDetail();
+    },
    data() {
        return {
+         conversationId:null,
          messages: [],
          newMessage: ''
        };
      },
      methods: {
-       async sendMessage() {
+       getChatDetail(){
+         
+         if(this.conversationId === null){
+           return;
+         }else{
+           uni.request({
+             url:'/aichat/getChatDetail',
+             data:{
+               conversationId:this.conversationId
+             }
+           }).then(res=>{
+             console.log(res);
+             this.messages=res[1].data;
+           }).catch(err=>{
+             console.log(err)
+             uni.showToast({
+                 title: "获取失败，请稍后重试",
+                 icon: 'none',
+                 duration: 2000
+             });
+           })
+         }
+       },
+       
+       sendMessage() {
          if (!this.newMessage.trim()) return;
-         this.messages.push({ text: this.newMessage, sender: 'user' });
          
-         const postData={"user_input":this.newMessage}
+         this.messages.push({ content: this.newMessage, role: 'user' });
+         this.scrollToBottom();
+        const postData = { 
+          userInput: this.newMessage, 
+          userId: uni.getStorageSync("userId"), 
+          // conversationId: this.conversationId
+        };
+        if(this.conversationId!=null){
+          postData.conversationId=this.conversationId
+        }
          this.newMessage = '';
-         // const res=await fetch({
-         //   url: 'http://localhost:5000/chat/',
-         //   method:'POST',
-         //   headers: {
-         //       'Content-Type': 'application/json'
-         //     },
-         //     body: JSON.stringify(postdata)
-         // })
-         const res=await uni.request({
-           url: 'http://localhost:5000/chat',
+         
+         uni.request({
+           url: '/aichat/getAnswer',
            method: 'POST',
-           data: postData,
-           // success: (res) => {
-           //   console.log(res.data); // 输出返回的数据
-           //   // 在成功发送消息后，将 AI 的回复消息显示在界面上
-           //   this.messages.push({ text: res.data, sender: 'bot' });
-           //  }
+           header: {
+               'content-type': 'application/x-www-form-urlencoded'
+             },
+           data: postData
+        
+           
+        }).then(res=>{
+          if(this.conversationId === null){
+            this.conversationId=res[1].data.conversationId
+          }
+          console.log(res)
+          const AI=res[1].data.content
+          this.messages.push({ content: AI, sender: 'assistant' });
+          this.scrollToBottom();
+        }).catch(err=>{
+          console.log(err);
+          uni.showToast({
+              title: "获取失败，请稍后重试",
+              icon: 'none',
+              duration: 2000
+          });
         })
-        console.log(res)
-          const AI=res[1].data.response
-         
-         
+
          // 模拟 AI 回复消息
          // setTimeout(() => {
          //   this.messages.push({ text: AI, sender: 'bot' });
@@ -59,42 +106,17 @@
          //     this.$refs.scrollView && this.$refs.scrollView.scrollIntoView('.message:last-child');
          //   });
          // }, 500);
-           this.messages.push({ text: AI, sender: 'bot' });
+           
            // 滚动到底部
-           // this.$nextTick(() => {
-           //   this.$refs.scrollView && this.$refs.scrollView.scrollIntoView('.message:last-child');
-           // });
+           this.$nextTick(() => {
+             this.$refs.scrollView && this.$refs.scrollView.scrollIntoView('.message:last-child');
+           });
            // 等待页面更新后滚动到底部
-             // setTimeout(() => {
-             //   this.scrollToBottom();
-             // }, 100);
+             setTimeout(() => {
+               this.scrollToBottom();
+             }, 100);
        },
-       // sendMessage() {
-       //   if (!this.newMessage.trim()) return;
-       //   this.messages.push({ text: this.newMessage, sender: 'user' });
-         
-       //   const postData = { "user_input": this.newMessage };
-       //   this.newMessage = '';
-         
-       //   uni.request({
-       //     url: 'http://localhost:5000/chat',
-       //     method: 'POST',
-       //     data: postData,
-       //     success: (res) => {
-       //       console.log(res);
-       //       const AI = res.data.response;
-       //       this.messages.push({ text: AI, sender: 'bot' });
        
-       //       // 滚动到底部
-       //       setTimeout(() => {
-       //         this.scrollToBottom();
-       //       }, 100);
-       //     },
-       //     fail: (err) => {
-       //       console.error('Failed to send message:', err);
-       //     }
-       //   });
-       // },
        scrollToBottom() {
          uni.pageScrollTo({
            scrollTop: 9999, // 滚动到一个足够大的值，确保页面能滚动到底部

@@ -99,7 +99,7 @@ var components
 try {
   components = {
     myItem: function () {
-      return __webpack_require__.e(/*! import() | components/my-item/my-item */ "components/my-item/my-item").then(__webpack_require__.bind(null, /*! @/components/my-item/my-item.vue */ 308))
+      return __webpack_require__.e(/*! import() | components/my-item/my-item */ "components/my-item/my-item").then(__webpack_require__.bind(null, /*! @/components/my-item/my-item.vue */ 316))
     },
   }
 } catch (e) {
